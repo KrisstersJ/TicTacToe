@@ -1,0 +1,61 @@
+﻿<Window x:Class="TicTacToe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicTacToe"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="860" Width="900" Background="White">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="10"/>
+            <EventSetter Event="Click" Handler="ClickSpace"></EventSetter>
+            <Setter Property="FontSize" Value="48"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid Background="#FF464544">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="266*"/>
+                <RowDefinition Height="90*"/>
+                <RowDefinition Height="522*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="NewGame" Content="New game" HorizontalAlignment="Center" Margin="0,348,0,0"  Height="120" Width="306" Background="#FF7A8186" Foreground="White" FontSize="40" FontFamily="Cooper Black" Click="NewGame_Click" Grid.Row="4">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="30"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+        <Grid x:Name="gridBoard" Margin="40,14,44,164" Background="Black">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button  Tag="0,0" Background="#FF464544" Margin="0,0,10,10" BorderBrush="#FF464544" FontSize="70"/>
+            <Button  Tag="0,1" Grid.Column="1" Background="#FF464544" Margin="10,0,10,10" BorderBrush="#FF464544" FontSize="70"/>
+            <Button  Tag="0,2" Grid.Column="2" Background="#FF464544" Margin="10,0,0,10" BorderBrush="#FF464544" FontSize="70"/>
+            <Button  Tag="1,2" Grid.Column="2" Grid.Row="1" Background="#FF464544" BorderBrush="#FF464544" Margin="10,10,0,10" FontSize="70"/>
+            <Button  Tag="1,0" Grid.Row="1" Background="#FF464544" Margin="0,10,10,10" BorderBrush="#FF464544" FontSize="70"/>
+            <Button  Tag="2,0" Grid.Row="2" Background="#FF464544" Margin="0,10,10,0" BorderBrush="#FF464544" FontSize="70"/>
+            <Button  Tag="1,1" Grid.Column="1" Grid.Row="1" Background="#FF464544" FontSize="70" BorderBrush="#FF464544"/>
+            <Button  Tag="2,1" Grid.Column="1" Grid.Row="2" Background="#FF464544" Margin="10,10,10,0" BorderBrush="#FF464544" FontSize="70"/>
+            <Button  Tag="2,2" Grid.Column="2" Grid.Row="2" Background="#FF464544" Margin="10,10,-1,0" BorderBrush="#FF464544" FontSize="70"/>
+            <TextBlock x:Name="Win" HorizontalAlignment="Center"  TextWrapping="Wrap" Visibility="Collapsed" VerticalAlignment="Center" Height="112"  Width="230" Grid.ColumnSpan="3" Grid.Row="1" FontFamily="Comic Sans MS" FontSize="60" Background="#FFAD9D9D"><Run Text="X Win" FontSize="100"/><LineBreak/><Run/></TextBlock>
+
+        </Grid>
+
+
+    </Grid>
+</Window>
